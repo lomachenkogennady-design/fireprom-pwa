@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>ООО «ФАЙЕРПРОМ» — Корпоративный портал</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icon-192x192.png">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🔥 ООО «ФАЙЕРПРОМ»</h1>
+            <p>Корпоративный портал</p>
+        </header>
+        
+        <nav>
+            <button onclick="showSection('home')" class="nav-btn active">Главная</button>
+            <button onclick="showSection('calculator')" class="nav-btn">Калькулятор</button>
+            <button onclick="showSection('charts')" class="nav-btn">Графики</button>
+            <button onclick="showSection('database')" class="nav-btn">База данных</button>
+        </nav>
+
+        <main>
+            <section id="home" class="section active">
+                <h2>Добро пожаловать!</h2>
+                <p>Корпоративный портал ООО «ФАЙЕРПРОМ»</p>
+                <div class="info-cards">
+                    <div class="card">
+                        <h3>🏢 Компания</h3>
+                        <p>ООО «ФАЙЕРПРОМ»</p>
+                        <p>ИНН: 7814643719</p>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Данные</h3>
+                        <p>Производство противопожарных дверей</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calculator" class="section">
+                <h2>📐 Калькулятор</h2>
+                <div id="calculator-container"></div>
+            </section>
+
+            <section id="charts" class="section">
+                <h2>📈 Графики</h2>
+                <div id="charts-container"></div>
+            </section>
+
+            <section id="database" class="section">
+                <h2>🗄️ База данных</h2>
+                <div id="database-container"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 ООО «ФАЙЕРПРОМ»</p>
+        </footer>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="./calculator.js"></script>
+    <script src="./charts.js"></script>
+    <script src="./db.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('SW registered'))
+                .catch(err => console.log('SW error:', err));
+        }
+    </script>
+</body>
+</html>
